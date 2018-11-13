@@ -1,0 +1,76 @@
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">
+                BLOOD BANK DATABASE
+            </a>
+        </div>
+
+        <ul class="nav navbar-nav pull-right">
+        	<li><a href="/">Hospital</a></li>
+            <li><a href="/supplier">Supplier</a></li>
+            <li><a href="/blood_product">Blood Product</a></li>
+            <li><a href="/stores">Stores</a></li>
+            <li><a href="/antigen_history">Antigen History</a></li>
+            <li><a href="/antigen">Antigen</a></li>
+            <li><a href="/antibody">Antibody</a></li>
+        </ul>
+
+    </div>
+</nav>
+
+<nav class="navbar navbar-inverse navbar-fixed-bottom">
+    <div class="container">
+
+        <p class="navbar-text"><span class="glyphicon glyphicon-copyright-mark"></span> BLOOD BANK DATABASE 2018</p>
+        
+
+        <ul class="nav navbar-nav pull-left">
+            <li><a href="https://twitter.com"><i class="fa fa-twitter-square"></i></a></li>
+            <li><a href="mailto:smitfran@oregonstate.edu"><span class="glyphicon glyphicon-envelope"></span></a></li>
+            <li><a href="https://github.com/FrankCSmith"><i class="fa fa-github-square"></i></a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="main">
+    <div class="h1ElementWhite">
+        <h1> STORES INFORMATION </h1>
+    </div>
+    <div class="addForm">
+        <h3> ADD STORES </h3>
+        <form id ="insert4">
+            Hospital Key:<br>
+            <input type="text" name="hospitalKeyInput"><br>
+            Product Key:<br>
+            <input type="text" name="productKeyInput"><br>
+            <input type="submit" value="Submit" id="addStoresBtn">
+        </form>
+
+        <h3>Table with update and delete buttons</h3>
+        
+        <table border="1" id = "storesTable">
+        <thead>
+            <th>hospitalKey</th>
+            <th>productKey</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </thead>
+        <tbody>
+            {{#each results}}
+                <tr>
+                    <td>{{this.hospitalKey}}</td>
+                    <td>{{this.productKey}}</td>
+                    <td><a href="/editTable?id={{this.id}}"><input type="button" type="button" value="edit"></a></td>
+                    <td><button type="button" onclick="DeleteTableRow({{this.id}})">DELETE</button></td>
+            
+                </tr>
+            {{/each}}
+        </tbody> 
+        </table>
+    </div>
+
+</div>
+

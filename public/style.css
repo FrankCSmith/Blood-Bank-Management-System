@@ -1,0 +1,90 @@
+
+body, html {
+    height: 100%;
+}
+
+body{
+	background-color:#27292b;
+}
+
+.main{
+	margin-top: 60px;
+	margin-bottom: 60px;
+	color:white;
+}
+.navbar-inverse{
+	background:black;
+	color:white;
+	
+}
+.btn-secondary{
+    background:transparent;
+    border: 4px solid #395edb;
+    color:#acb0b8;
+
+}
+
+.btn-secondary:hover{
+	color:white;
+}
+
+.btn-info{
+	background:transparent;
+    border: 4px solid #395edb;
+    color:#acb0b8;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.btn-info:hover{
+	color:white;
+}
+
+
+.dropdown-item{
+	color:#acb0b8;
+}
+
+.dropdown-item:hover{
+	color:white;
+	background-color: #27292b;
+}
+
+a img{
+	width:20px;
+	height:20px;
+}
+.fa-twitter-square{
+	font-size:24px;
+}
+.glyphicon-envelope{
+	font-size:22px;
+}
+.fa-github-square{
+	font-size:24px;
+}
+table{
+  color:white; 
+}
+.navbar-inverse .navbar-toggle {
+  border-color: transparent; 
+  background-color: transparent;
+}
+.navbar-inverse .navbar-toggle .icon-bar {
+  background-color: #395edb; /* Changes regular toggle color */
+}
+.navbar-inverse .navbar-toggle .icon-bar:hover {
+  background-color: blue; /* Changes toggle color on hover */
+}
+.dropdown-menu{
+	white-space:nowrap;
+}
+.bgImage { 
+    background-image: url("redblueart.jpg");
+    height: 100%; 
+    background-position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.addForm{
+	color:red;
+}
