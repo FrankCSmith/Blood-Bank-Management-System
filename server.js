@@ -11,7 +11,7 @@ var handlebars = require('express-handlebars').create({defaultLayout:'index'});
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 
-app.set('port', (process.env.PORT || 6420));
+app.set('port', (process.env.PORT || 6421));
 
 //Body Parser Middleware
 app.use(bodyParser.json());
@@ -47,6 +47,17 @@ app.get('/insertHospital',function(req,res,next){
 	});
 });
 
+app.get('/deleteHospital',function(req,res,next){
+	mysql.pool.query("DELETE FROM Hospital WHERE hospitalID=?", [req.query.id], function(err,result){
+		if(err){
+			next(err);
+			return;
+		}
+		console.log(req.query.id);
+		res.render('hospital');
+	});
+});
+
 app.get('/supplier', function(req, res){
 	
 	mysql.pool.query('SELECT * FROM Supplier', function(err,results,fields){
@@ -75,6 +86,16 @@ app.get('/insertSupplier',function(req,res,next){
 			res.send(rows[rows.length - 1]);
 		});
 
+	});
+});
+
+app.get('/deleteSupplier',function(req,res,next){
+	mysql.pool.query("DELETE FROM Supplier WHERE supplierID=?", [req.query.id], function(err,result){
+		if(err){
+			next(err);
+			return;
+		}
+		res.render('supplier');
 	});
 });
 
@@ -109,6 +130,16 @@ app.get('/insertBlood_Product',function(req,res,next){
 	});
 });
 
+app.get('/deleteBlood_Product',function(req,res,next){
+	mysql.pool.query("DELETE FROM Blood_Product WHERE bloodProductID=?", [req.query.id], function(err,result){
+		if(err){
+			next(err);
+			return;
+		}
+		res.render('blood_product');
+	});
+});
+
 app.get('/antigen_history', function(req, res){
 
 	mysql.pool.query('SELECT * FROM Antigen_History', function(err,results,fields){
@@ -137,6 +168,16 @@ app.get('/insertAntigen_History',function(req,res,next){
 			res.send(rows[rows.length - 1]);
 		});
 
+	});
+});
+
+app.get('/deleteAntigen_History',function(req,res,next){
+	mysql.pool.query("DELETE FROM Antigen_History WHERE antigenHistoryID=?", [req.query.id], function(err,result){
+		if(err){
+			next(err);
+			return;
+		}
+		res.render('antigen_history');
 	});
 });
 
@@ -171,6 +212,16 @@ app.get('/insertStores',function(req,res,next){
 	});
 });
 
+app.get('/deleteStores',function(req,res,next){
+	mysql.pool.query("DELETE FROM Stores WHERE id=?", [req.query.id], function(err,result){
+		if(err){
+			next(err);
+			return;
+		}
+		res.render('stores');
+	});
+});
+
 app.get('/antigen', function(req, res){
 	
 	mysql.pool.query('SELECT * FROM Antigen', function(err,results,fields){
@@ -202,6 +253,16 @@ app.get('/insertAntigen',function(req,res,next){
 	});
 });
 
+app.get('/deleteAntigen',function(req,res,next){
+	mysql.pool.query("DELETE FROM Antigen WHERE antigenID=?", [req.query.id], function(err,result){
+		if(err){
+			next(err);
+			return;
+		}
+		res.render('antigen');
+	});
+});
+
 app.get('/antibody', function(req, res){
 
 	mysql.pool.query('SELECT * FROM Antibodies', function(err,results,fields){
@@ -230,6 +291,16 @@ app.get('/insertAntibodies',function(req,res,next){
 			res.send(rows[rows.length - 1]);
 		});
 
+	});
+});
+
+app.get('/deleteAntibodies',function(req,res,next){
+	mysql.pool.query("DELETE FROM Antibodies WHERE antibodyID=?", [req.query.id], function(err,result){
+		if(err){
+			next(err);
+			return;
+		}
+		res.render('antibody');
 	});
 });
 

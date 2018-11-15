@@ -68,7 +68,7 @@
                     <td>{{this.antigenKey}}</td>
                     <td>{{this.dateOfHistory}}</td>
                     <td><a href="/editTable?id={{this.id}}"><input type="button" type="button" value="edit"></a></td>
-                    <td><button type="button" onclick="DeleteTableRow({{this.id}})">DELETE</button></td>
+                    <td><button type="button" onclick="deleteAntigenHistoryTableRow({{this.antigenHistoryID}})">DELETE</button></td>
             
                 </tr>
             {{/each}}

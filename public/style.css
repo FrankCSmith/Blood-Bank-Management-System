@@ -11,6 +11,7 @@ body{
 	margin-top: 60px;
 	margin-bottom: 60px;
 	color:white;
+	padding-left:10px;
 }
 .navbar-inverse{
 	background:black;
@@ -62,9 +63,35 @@ a img{
 .fa-github-square{
 	font-size:24px;
 }
-table{
-  color:white; 
+form{
+	padding-left: 10px;
+} 
+thead{
+	text-align: center;
 }
+th{
+	text-align: center;
+}
+table{
+  color:white;
+	margin-left: auto;
+	margin-right:auto;
+	text-align: center;
+	border-color: red;
+	width: 75%	
+}
+input[type=submit]{
+	background-color:red;
+	color:white;
+	cursor:pointer;
+}
+button, input[type=button]{
+	background-color: red;
+	color: white;
+	text-align: center;
+	width: 100%;
+	cursor:pointer;
+}	
 .navbar-inverse .navbar-toggle {
   border-color: transparent; 
   background-color: transparent;
@@ -87,4 +114,5 @@ table{
 }
 .addForm{
 	color:red;
+	padding-left: 10px;
 }

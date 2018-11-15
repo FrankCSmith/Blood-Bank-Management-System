@@ -72,7 +72,7 @@
                     <td>{{this.antigenFrequency}}</td>
                     <th>{{this.dosage}}</td>
                     <td><a href="/editTable?id={{this.id}}"><input type="button" type="button" value="edit"></a></td>
-                    <td><button type="button" onclick="DeleteTableRow({{this.id}})">DELETE</button></td>
+                    <td><button type="button" onclick="deleteAntigenTableRow({{this.antigenID}})">DELETE</button></td>
             
                 </tr>
             {{/each}}

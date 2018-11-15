@@ -76,7 +76,7 @@
                     <td>{{this.optimumTemperature}}</td>
                     <td>{{this.antigenKey}}</td>
                     <td><a href="/editTable?id={{this.id}}"><input type="button" type="button" value="edit"></a></td>
-                    <td><button type="button" onclick="DeleteTableRow({{this.id}})">DELETE</button></td>
+                    <td><button type="button" onclick="deleteAntibodiesTableRow({{this.antibodyID}})">DELETE</button></td>
             
                 </tr>
             {{/each}}
