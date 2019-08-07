@@ -9,7 +9,7 @@
         </div>
 
         <ul class="nav navbar-nav pull-right">
-        	<li><a href="/">Hospital</a></li>
+        	<li><a href="/hospital">Hospital</a></li>
             <li><a href="/supplier">Supplier</a></li>
             <li><a href="/blood_product">Blood Product</a></li>
             <li><a href="/stores">Stores</a></li>
@@ -21,19 +21,6 @@
     </div>
 </nav>
 
-<nav class="navbar navbar-inverse navbar-fixed-bottom">
-    <div class="container">
-
-        <p class="navbar-text"><span class="glyphicon glyphicon-copyright-mark"></span> BLOOD BANK DATABASE 2018</p>
-        
-
-        <ul class="nav navbar-nav pull-left">
-            <li><a href="https://twitter.com"><i class="fa fa-twitter-square"></i></a></li>
-            <li><a href="mailto:smitfran@oregonstate.edu"><span class="glyphicon glyphicon-envelope"></span></a></li>
-            <li><a href="https://github.com/FrankCSmith"><i class="fa fa-github-square"></i></a></li>
-        </ul>
-    </div>
-</nav>
 
 <div class="main">
     <div class="h1ElementWhite">
@@ -41,7 +28,7 @@
     </div>
     <div class="addForm">
         <h3> ADD ANTIBODY </h3>
-        <form id = "insert7">
+        <form id = "addAntibody" action="/antibody" method="post">
             Antibody Name:<br>
             <input type="text" name="antibodyNameInput"><br>
             ImmunoGlobulin Class:<br>
@@ -64,20 +51,17 @@
             <th>Serology</th>
             <th>Optimum Temperature</th>
             <th>Antigen Key</th>
-            <th>Edit</th>
             <th>Delete</th>
         </thead>
         <tbody>
-            {{#each results}}
+            {{#each antibodies}}
                 <tr>
-                    <td>{{this.antibodyName}}</td>
-                    <td>{{this.immunoglobulinClass}}</td>
-                    <td>{{this.serology}}</td>
-                    <td>{{this.optimumTemperature}}</td>
-                    <td>{{this.antigenKey}}</td>
-                    <td><a href="/editTable?id={{this.id}}"><input type="button" type="button" value="edit"></a></td>
-                    <td><button type="button" onclick="deleteAntibodiesTableRow({{this.antibodyID}})">DELETE</button></td>
-            
+                    <td>{{antibodyName}}</td>
+                    <td>{{immunoglobulinClass}}</td>
+                    <td>{{serology}}</td>
+                    <td>{{optimumTemperature}}</td>
+                    <td>{{antigenKey}}</td>
+                    <td><button type="button" onclick="deleteAntibody({{antibodyID}})">DELETE</button></td>
                 </tr>
             {{/each}}
         </tbody> 

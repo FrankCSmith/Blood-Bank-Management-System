@@ -1,4 +1,7 @@
-
+<html>
+{{#each foo}}
+{{this}}
+{{/each}}
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
 
@@ -9,7 +12,7 @@
         </div>
 
         <ul class="nav navbar-nav pull-right">
-        	<li><a href="/">Hospital</a></li>
+        	<li><a href="/hospital">Hospital</a></li>
             <li><a href="/supplier">Supplier</a></li>
             <li><a href="/blood_product">Blood Product</a></li>
             <li><a href="/stores">Stores</a></li>
@@ -21,21 +24,7 @@
     </div>
 </nav>
 
-<nav class="navbar navbar-inverse navbar-fixed-bottom">
-    <div class="container">
 
-        <p class="navbar-text"><span class="glyphicon glyphicon-copyright-mark"></span> BLOOD BANK DATABASE 2018</p>
-        
-
-        <ul class="nav navbar-nav pull-left">
-            <li><a href="https://twitter.com"><i class="fa fa-twitter-square"></i></a></li>
-            <li><a href="mailto:smitfran@oregonstate.edu"><span class="glyphicon glyphicon-envelope"></span></a></li>
-            <li><a href="https://github.com/FrankCSmith"><i class="fa fa-github-square"></i></a></li>
-        </ul>
-    </div>
-</nav>
-
-<div class="bgImage"></div>
 <div class="main">
 	<div class="h1ElementWhite">
 		<h1> HOSPITAL INFORMATION </h1>
@@ -43,7 +32,7 @@
 
 	<div class="addForm">
 		<h3> ADD HOSPITAL </h3>
-		<form id="insert1">
+		<form id="addHospital" action="/hospital" method="post">
 			Hospital Name:<br>
 			<input type="text" name="hospitalNameInput"><br>
 			Hospital Address Street:<br>
@@ -59,7 +48,19 @@
 			<input type="submit" value="Submit" id="addHospitalBtn">
 		</form>
 
-		<h3>Table with update and delete buttons</h3>
+	
+	
+	
+	<div class="addForm">
+		<h3>SEARCH HOSPITAL BY CITY</h3>
+		<form id='searchHospital' action='' method=''>
+			Search Hospital By City:
+			<input id='hospitalCityString' type='text' name='hospitalCityString' ><br>
+			<input type="button" value="Search" onclick="searchHospitalByCity()">
+		</form>
+
+
+		<h3>All Hospitals In Database</h3>
 		
 		<table border="1" id = "hospitalTable">
 		<thead>
@@ -73,16 +74,16 @@
 			<th>Delete</th>
 		</thead>
 		<tbody>
-			{{#each results}}
+			{{#each hospitals}}
 				<tr>
-					<td>{{this.hospitalName}}</td>
-					<td>{{this.street}}</td>
-					<td>{{this.city}}</td>
-					<td>{{this.state}}</td>
-					<td>{{this.zipcode}}</td>
-					<td>{{this.country}}</td>
-					<td><a href="/editTable?id={{this.id}}"><input type="button" type="button" value="edit"></a></td>
-					<td><button type="button" onclick="deleteHospitalTableRow({{this.hospitalID}})">DELETE</button></td>
+					<td>{{hospitalName}}</td>
+					<td>{{street}}</td>
+					<td>{{city}}</td>
+					<td>{{state}}</td>
+					<td>{{zipcode}}</td>
+					<td>{{country}}</td>
+					<td><a href="/hospital/{{hospitalID}}">Update</a></td>
+					<td><button type="button" onclick="deleteHospital({{hospitalID}})">DELETE</button></td>
 			
 				</tr>
 			{{/each}}
@@ -94,3 +95,4 @@
 	
 
 </div>
+</html>

@@ -9,7 +9,7 @@
         </div>
 
         <ul class="nav navbar-nav pull-right">
-        	<li><a href="/">Hospital</a></li>
+        	<li><a href="/hospital">Hospital</a></li>
             <li><a href="/supplier">Supplier</a></li>
             <li><a href="/blood_product">Blood Product</a></li>
             <li><a href="/stores">Stores</a></li>
@@ -21,20 +21,6 @@
     </div>
 </nav>
 
-<nav class="navbar navbar-inverse navbar-fixed-bottom">
-    <div class="container">
-
-        <p class="navbar-text"><span class="glyphicon glyphicon-copyright-mark"></span> BLOOD BANK DATABASE 2018</p>
-        
-
-        <ul class="nav navbar-nav pull-left">
-            <li><a href="https://twitter.com"><i class="fa fa-twitter-square"></i></a></li>
-            <li><a href="mailto:smitfran@oregonstate.edu"><span class="glyphicon glyphicon-envelope"></span></a></li>
-            <li><a href="https://github.com/FrankCSmith"><i class="fa fa-github-square"></i></a></li>
-        </ul>
-    </div>
-</nav>
-
 <div class="main">
     <div class="h1ElementWhite">
         <h1> SUPPLIER INFORMATION </h1>
@@ -42,7 +28,7 @@
 
     <div class="addForm">
         <h3> ADD SUPPLIER</h3>
-        <form id = "insert2">
+        <form id = "addSupplier" action="/supplier" method="post">
             Supplier Name:<br>
             <input type="text" name="supplierNameInput"><br>
             Supplier Address Street:<br>
@@ -72,17 +58,16 @@
             <th>Delete</th>
         </thead>
         <tbody>
-            {{#each results}}
+            {{#each suppliers}}
                 <tr>
-                    <td>{{this.supplierName}}</td>
-                    <td>{{this.street}}</td>
-                    <td>{{this.city}}</td>
-                    <td>{{this.state}}</td>
-                    <td>{{this.zipcode}}</td>
-                    <td>{{this.country}}</td>
-                    <td><a href="/editTable?id={{this.id}}"><input type="button" type="button" value="edit"></a></td>
-                    <td><button type="button" onclick="deleteSupplierTableRow({{this.supplierID}})">DELETE</button></td>
-            
+                    <td>{{supplierName}}</td>
+                    <td>{{street}}</td>
+                    <td>{{city}}</td>
+                    <td>{{state}}</td>
+                    <td>{{zipcode}}</td>
+                    <td>{{country}}</td>
+                    <td><a href="/supplier/{{supplierID}}">Update</a></td>
+                    <td><button type="button" onclick="deleteSupplier({{supplierID}})">DELETE</button></td>
                 </tr>
             {{/each}}
         </tbody> 

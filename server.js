@@ -3,21 +3,34 @@ var mysql = require('./dbcon.js');
 var bodyParser = require('body-parser');
 
 var app = express();
-app.use(express.static('public'));
 
 var handlebars = require('express-handlebars').create({defaultLayout:'index'});
 
 
 app.engine('handlebars', handlebars.engine);
+app.use(bodyParser.urlencoded({extended:true}));
+app.use('/static',express.static('public'));
 app.set('view engine', 'handlebars');
 
-app.set('port', (process.env.PORT || 6421));
+app.set('port', (process.env.PORT || 3000));
+app.set('mysql', mysql);
 
-//Body Parser Middleware
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
+app.get('/', function(req,res,next){
+	var context = {};
+	res.render('home',context);
+})
+app.use('/hospital', require('./hospital.js'));
+app.use('/supplier', require('./supplier.js'));
+app.use('/antigen', require('./antigen.js'));
+app.use('/antigen_history', require('./antigen_history.js'));
+app.use('/blood_product', require('./blood_product.js'));
+app.use('/stores', require('./stores.js'));
+app.use('/antibody', require('./antibody.js'));
 
-app.get('/', function(req, res){
+
+app.use('/', express.static('public'));
+
+/*app.get('/', function(req, res){
 	
 	mysql.pool.query('SELECT * FROM Hospital', function(err,results,fields){
 		if(err) throw err;
@@ -26,6 +39,18 @@ app.get('/', function(req, res){
 		res.render('hospital', {
         	results: results
         });
+	});
+});
+
+/*app.get('/searchHospital',function(req,res){
+	mysql.pool.query("SELECT FROM Hospital WHERE city= 'NY'", function(err,results, fields){
+		if(err) throw err;
+		console.log(req.query.hospitalCityInput);
+
+		res.render('hospital', {
+			results: resultsSearch
+		});
+
 	});
 });
 
@@ -57,7 +82,7 @@ app.get('/deleteHospital',function(req,res,next){
 		res.render('hospital');
 	});
 });
-
+/*
 app.get('/supplier', function(req, res){
 	
 	mysql.pool.query('SELECT * FROM Supplier', function(err,results,fields){
@@ -303,7 +328,7 @@ app.get('/deleteAntibodies',function(req,res,next){
 		res.render('antibody');
 	});
 });
-
+*/
 app.use(function(req, res){
 	res.status(404);
 	res.render('404');

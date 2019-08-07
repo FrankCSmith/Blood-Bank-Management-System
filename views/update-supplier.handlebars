@@ -1,0 +1,45 @@
+<html>
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+	    <div class="container">
+
+	        <div class="navbar-header">
+	            <a class="navbar-brand" href="/">
+	                BLOOD BANK DATABASE
+	            </a>
+	        </div>
+
+	        <ul class="nav navbar-nav pull-right">
+	        	<li><a href="/hospital">Hospital</a></li>
+	            <li><a href="/supplier">Supplier</a></li>
+	            <li><a href="/blood_product">Blood Product</a></li>
+	            <li><a href="/stores">Stores</a></li>
+	            <li><a href="/antigen_history">Antigen History</a></li>
+	            <li><a href="/antigen">Antigen</a></li>
+	            <li><a href="/antibody">Antibody</a></li>
+	        </ul>
+
+	    </div>
+	</nav>
+
+	<div class="main">
+		<div class="addForm">
+	        <h1>Update {{supplier.supplierName}}:</h1>
+	        <form id = "update-supplier" action="/supplier" method="post">
+	            Supplier Name:<br>
+	            <input type="text" name="supplierNameInput" value="{{supplier.supplierName}}"><br>
+	            Supplier Address Street:<br>
+	            <input type="text" name="supplierStreetInput" value="{{supplier.street}}"><br>
+	            Supplier Address City:<br>
+	            <input type="text" name ="supplierCityInput" value="{{supplier.city}}"><br>
+	            Supplier Address State:<br>
+	            <input type="text" name="supplierStateInput" value="{{supplier.state}}"><br>
+	            Supplier Address Zipcode:<br>
+	            <input type="text" name="supplierZipcodeInput" value="{{supplier.zipcode}}"><br>
+	            Supplier Address Country:<br>
+	            <input type="text" name="supplierCountryInput" value="{{supplier.country}}"><br>
+	        </form>
+	    </div>
+    	<button onclick="updateSupplier({{supplier.supplierID}})">Update</button>
+    </div>
+</html>

@@ -9,7 +9,7 @@
         </div>
 
         <ul class="nav navbar-nav pull-right">
-        	<li><a href="/">Hospital</a></li>
+        	<li><a href="/hospital">Hospital</a></li>
             <li><a href="/supplier">Supplier</a></li>
             <li><a href="/blood_product">Blood Product</a></li>
             <li><a href="/stores">Stores</a></li>
@@ -21,27 +21,13 @@
     </div>
 </nav>
 
-<nav class="navbar navbar-inverse navbar-fixed-bottom">
-    <div class="container">
-
-        <p class="navbar-text"><span class="glyphicon glyphicon-copyright-mark"></span> BLOOD BANK DATABASE 2018</p>
-        
-
-        <ul class="nav navbar-nav pull-left">
-            <li><a href="https://twitter.com"><i class="fa fa-twitter-square"></i></a></li>
-            <li><a href="mailto:smitfran@oregonstate.edu"><span class="glyphicon glyphicon-envelope"></span></a></li>
-            <li><a href="https://github.com/FrankCSmith"><i class="fa fa-github-square"></i></a></li>
-        </ul>
-    </div>
-</nav>
-
 <div class="main">
     <div class="h1ElementWhite">
         <h1> BLOOD PRODUCT INFORMATION </h1>
     </div>
     <div class="addForm">
         <h3> ADD BLOOD PRODUCT </h3>
-        <form id="insert3">
+        <form id="addBloodProduct" action="/blood_product" method="post">
             Product Type:<br>
             <input type="text" name="typeProductInput"><br>
             Product ABO/Rh:<br>
@@ -76,24 +62,21 @@
             <th>Current Status</th>
             <th>Hospital Source</th>
             <th>Supplier Source</th>
-            <th>Update</th>
             <th>Delete</th>
         </thead>
         <tbody>
-            {{#each results}}
+            {{#each blood_products}}
                 <tr>
-                    <td>{{this.typeProduct}}</td>
-                    <td>{{this.productABORh}}</td>
-                    <td>{{this.donorUnitIDBarCode}}</td>
-                    <td>{{this.donorUnitProductCode}}</td>
-                    <td>{{this.unitArrival}}</td>
-                    <td>{{this.unitExpiration}}</td>
-                    <td>{{this.unitHistory}}</td>
-                    <td>{{this.hospitalSource}}</td>
-                    <td>{{this.supplierSource}}</td>
-                    <td><a href="/editTable?id={{this.id}}"><input type="button" type="button" value="edit"></a></td>
-                    <td><button type="button" onclick="deleteBloodProductTableRow({{this.bloodProductID}})">DELETE</button></td>
-            
+                    <td>{{typeProduct}}</td>
+                    <td>{{productABORh}}</td>
+                    <td>{{donorUnitIDBarCode}}</td>
+                    <td>{{donorUnitProductCode}}</td>
+                    <td>{{unitArrival}}</td>
+                    <td>{{unitExpiration}}</td>
+                    <td>{{unitHistory}}</td>
+                    <td>{{hospitalSource}}</td>
+                    <td>{{supplierSource}}</td>
+                    <td><button type="button" onclick="deleteBlood_Product({{productID}})">DELETE</button></td>
                 </tr>
             {{/each}}
         </tbody> 

@@ -1,0 +1,45 @@
+<html>
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+	    <div class="container">
+
+	        <div class="navbar-header">
+	            <a class="navbar-brand" href="/">
+	                BLOOD BANK DATABASE
+	            </a>
+	        </div>
+
+	        <ul class="nav navbar-nav pull-right">
+	        	<li><a href="/hospital">Hospital</a></li>
+	            <li><a href="/supplier">Supplier</a></li>
+	            <li><a href="/blood_product">Blood Product</a></li>
+	            <li><a href="/stores">Stores</a></li>
+	            <li><a href="/antigen_history">Antigen History</a></li>
+	            <li><a href="/antigen">Antigen</a></li>
+	            <li><a href="/antibody">Antibody</a></li>
+	        </ul>
+
+	    </div>
+	</nav>
+	
+	<div class="main">
+		<div class="addForm">
+		<h1>Update {{hospital.hospitalName}}:</h1>
+			<form id="update-hospital" action="/hospital" method="post">
+				Hospital Name:<br>
+				<input type="text" name="hospitalNameInput" value="{{hospital.hospitalName}}"><br>
+				Hospital Address Street:<br>
+				<input type="text" name="hospitalStreetInput" value="{{hospital.street}}"><br>
+				Hosptial Address City:<br>
+				<input type="text" name ="hospitalCityInput" value="{{hospital.city}}"><br>
+				Hospital Address State:<br>
+				<input type="text" name="hospitalStateInput" value="{{hospital.state}}"><br>
+				Hospital Address Zipcode:<br>
+				<input type="text" name="hospitalZipcodeInput" value="{{hospital.zipcode}}"><br>
+				Hospital Address Country:<br>
+				<input type="text" name="hospitalCountryInput" value="{{hospital.country}}"><br>	
+			</form>
+		</div>
+		<button onclick="updateHospital({{hospital.hospitalID}})">Update</button>
+	</div>
+</html>

@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", insertStoresTableRow);
 document.addEventListener("DOMContentLoaded", insertAntigenTableRow);
 document.addEventListener("DOMContentLoaded", insertAntigenHistoryTableRow);
 document.addEventListener("DOMContentLoaded", insertAntibodiesTableRow);
+document.addEventListener("DOMContentLoaded", searchHospitalByCity);
 
 //document.addEventListener("DOMContentLoaded", deleteHospitalTableRow);
 //document.addEventListener("DOMContentLoaded", deleteSupplierTableRow);
@@ -15,7 +16,32 @@ document.addEventListener("DOMContentLoaded", insertAntibodiesTableRow);
 //document.addEventListener("DOMContentLoaded", deleteAntibodiesTableRow);
 
 
+/*function searchHospitalByCity(){
+	document.getElementById('hospitalCitySearchBtn').addEventListener('click',function(event){
+		var select1 = document.getElementById("select1");
 
+		var payload = "hospitalCityInput=" + select1.elements.hospitalCityString.value
+
+		var req = new XMLHttpRequest();
+
+		req.open("GET", "/searchHospital?" + payload, true);
+		req.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+			req.addEventListener('load', function(){
+			var response = JSON.parse(req.responseText);
+			var id = response.id;
+			
+			var revisedTable = document.getElementById("hospitalTable");
+			var addRow = table.insertRow(-1);
+			addRow.setAttribute("id", id);
+		}
+
+		});
+
+		req.send("/searchHospital?" + payload);
+		event.preventDefault;
+
+	
+}*/
 
 function insertHospitalTableRow(){
 	document.getElementById('addHospitalBtn').addEventListener('click',function(event){
@@ -415,76 +441,76 @@ function insertAntibodiesTableRow(){
 function deleteHospitalTableRow(id){
 	var table = document.getElementById("hospitalTable");
 	var row = document.getElementById("id");
-	table.deleteRow(id);
+	table.deleteRow(row);
 	var req = new XMLHttpRequest();
 	req.open("GET", "/deleteHospital?id=" + id, true);
 	req.send("/deleteHospital?id=" + id);
 	event.preventDefault();
-	/*location.reload();*/
+	location.reload();
 }
 
 function deleteSupplierTableRow(id){
 	var table = document.getElementById("supplierTable");
 	var row = document.getElementById("id");
-	table.deleteRow(id);
+	table.deleteRow(row);
 	var req = new XMLHttpRequest();
 	req.open("GET", "/deleteSupplier?id=" + id, true);
 	req.send("/deleteSupplier?id=" + id);
 	event.preventDefault();
-	/*location.reload();*/
+	location.reload();
 }
 
 function deleteBloodProductTableRow(id){
 	var table = document.getElementById("bloodProductTable");
 	var row = document.getElementById("id");
-	table.deleteRow(id);
+	table.deleteRow(row);
 	var req = new XMLHttpRequest();
 	req.open("GET", "/deleteBlood_Product?id=" + id, true);
 	req.send("/deleteBlood_Product?id=" + id);
 	event.preventDefault();
-	/*location.reload();*/
+	location.reload();
 }
 
 function deleteStoresTableRow(id){
 	var table = document.getElementById("storesTable");
 	var row = document.getElementById("id");
-	table.deleteRow(id);
+	table.deleteRow(row);
 	var req = new XMLHttpRequest();
 	req.open("GET", "/deleteStores?id=" + id, true);
 	req.send("/deleteStores?id=" + id);
 	event.preventDefault();
-	/*location.reload();*/
+	location.reload();
 }
 
 function deleteAntigenHistoryTableRow(id){
 	var table = document.getElementById("antigenHistoryTable");
 	var row = document.getElementById("id");
-	table.deleteRow(id);
+	table.deleteRow(row);
 	var req = new XMLHttpRequest();
 	req.open("GET", "/deleteAntigen_History?id=" + id, true);
 	req.send("/deleteAntigen_History?id=" + id);
 	event.preventDefault();
-	/*location.reload();*/
+	location.reload();
 }
 
 function deleteAntigenTableRow(id){
 	var table = document.getElementById("antigenTable");
 	var row = document.getElementById("id");
-	table.deleteRow(id);
+	table.deleteRow(row);
 	var req = new XMLHttpRequest();
 	req.open("GET", "/deleteAntigen?id=" + id, true);
 	req.send("/deleteAntigen?id=" + id);
 	event.preventDefault();
-	/*location.reload();*/
+	location.reload();
 }
 
 function deleteAntibodiesTableRow(id){
 	var table = document.getElementById("antibodyTable");
 	var row = document.getElementById("id");
-	table.deleteRow(id);
+	table.deleteRow(row);
 	var req = new XMLHttpRequest();
 	req.open("GET", "/deleteAntibodies?id=" + id, true);
 	req.send("/deleteAntibodies?id=" + id);
 	event.preventDefault();
-	/*location.reload();*/
+	location.reload();
 }

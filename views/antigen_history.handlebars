@@ -9,7 +9,7 @@
         </div>
 
         <ul class="nav navbar-nav pull-right">
-        	<li><a href="/">Hospital</a></li>
+        	<li><a href="/hospital">Hospital</a></li>
             <li><a href="/supplier">Supplier</a></li>
             <li><a href="/blood_product">Blood Product</a></li>
             <li><a href="/stores">Stores</a></li>
@@ -21,19 +21,6 @@
     </div>
 </nav>
 
-<nav class="navbar navbar-inverse navbar-fixed-bottom">
-    <div class="container">
-
-        <p class="navbar-text"><span class="glyphicon glyphicon-copyright-mark"></span> BLOOD BANK DATABASE 2018</p>
-        
-
-        <ul class="nav navbar-nav pull-left">
-            <li><a href="https://twitter.com"><i class="fa fa-twitter-square"></i></a></li>
-            <li><a href="mailto:smitfran@oregonstate.edu"><span class="glyphicon glyphicon-envelope"></span></a></li>
-            <li><a href="https://github.com/FrankCSmith"><i class="fa fa-github-square"></i></a></li>
-        </ul>
-    </div>
-</nav>
 
 <div class="main">
     <div class="h1ElementWhite">
@@ -41,7 +28,7 @@
     </div>
     <div class="addForm">
         <h3> ADD ANTIGEN HISTORY </h3>
-        <form id = "insert5">
+        <form id = "addAntigenHistory" action="/antigen_history" method="post">
             Product Key:<br>
             <input type="text" name="productKeyInput"><br>
             Antigen Key:<br>
@@ -58,17 +45,15 @@
             <th>productKey</th>
             <th>antigenKey</th>
             <th>dateOfHistory</th>
-            <th>Edit</th>
             <th>Delete</th>
         </thead>
         <tbody>
-            {{#each results}}
+            {{#each antigen_histories}}
                 <tr>
-                    <td>{{this.productKey}}</td>
-                    <td>{{this.antigenKey}}</td>
-                    <td>{{this.dateOfHistory}}</td>
-                    <td><a href="/editTable?id={{this.id}}"><input type="button" type="button" value="edit"></a></td>
-                    <td><button type="button" onclick="deleteAntigenHistoryTableRow({{this.antigenHistoryID}})">DELETE</button></td>
+                    <td>{{productKey}}</td>
+                    <td>{{antigenKey}}</td>
+                    <td>{{dateOfHistory}}</td>
+                    <td><button type="button" onclick="deleteAntigen_History({{antigenHistoryID}})">DELETE</button></td>
             
                 </tr>
             {{/each}}
