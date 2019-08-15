@@ -11,7 +11,7 @@ body{
 	margin-top: 60px;
 	margin-bottom: 60px;
 	color:white;
-	padding-left:10px;
+	/*padding-left:10px;*/
 }
 .navbar-inverse{
 	background:black;
@@ -64,7 +64,8 @@ a img{
 	font-size:24px;
 }
 form{
-	padding-left: 10px;
+	padding-left: 25%;
+	padding-right: 25%;
 } 
 thead{
 	text-align: center;
@@ -96,6 +97,17 @@ button, input[type=button]{
 	text-align: center;
 	width: 100%;
 	cursor:pointer;
+}
+
+.h1ElementWhite{
+	background-color: gold;
+	text-align: center;
+}
+
+.searchBtn{
+	/*width: 100%;*/
+	padding-left: 25%;
+	padding-right: 25%;
 }	
 .navbar-inverse .navbar-toggle {
   border-color: transparent; 
@@ -120,4 +132,5 @@ button, input[type=button]{
 .addForm{
 	color:gold;
 	padding-left: 10px;
+	text-align: center;
 }

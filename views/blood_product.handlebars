@@ -43,13 +43,23 @@
             Unit History:<br>
             <input type="text" name="unitHistoryInput"><br>
             Hospital Source:<br>
-            <input type="text" name="hospitalSourceInput"><br>
+            <!-- <input type="text" name="hospitalSourceInput"><br> -->
+            <select>
+                <option>Memorial Sloan</option>
+                <option>Mount Sinai</option>
+                <option>Portland Hospital</option>
+            </select><br>
+
             Supplier Source:<br>
-            <input type="text" name="supplierSourceInput"><br>
+            <!-- <input type="text" name="supplierSourceInput"><br> -->
+            <select>
+                <option>New York Blood Center</option>
+                <option>Portland Red Cross</option>
+            </select><br>
             <input type="submit" value="Submit" id="addBloodProductBtn">
         </form>
 
-        <h3>Table with update and delete buttons</h3>
+        <h3>All Blood Products in Database</h3>
 
         <table border="1" id = "bloodProductTable">
         <thead>
